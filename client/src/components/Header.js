@@ -6,7 +6,21 @@ class Header extends Component {
     renderContent() {
         switch (this.props.auth) {
             case null:
-                return;
+                return (
+                    <div style={{height: "100%", paddingTop: "11px", paddingRight: "11px"}}>
+                        <div className="preloader-wrapper small active">
+                            <div className="spinner-layer" style={{borderColor: "white"}}>
+                              <div className="circle-clipper left">
+                                <div className="circle"></div>
+                              </div><div className="gap-patch">
+                                <div className="circle"></div>
+                              </div><div className="circle-clipper right">
+                                <div className="circle"></div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                );
             case false:
                 return <li><a href="/auth/google">Login With Google</a></li>
             default:
