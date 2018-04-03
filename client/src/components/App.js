@@ -8,7 +8,7 @@ const Landing = () => <h2>Landing</h2>;
 
 const app = () => {
     return (
-        <div>
+        <div className="container">
             <BrowserRouter>
                 <div>
                     <Header/>
