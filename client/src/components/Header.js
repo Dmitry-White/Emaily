@@ -20,6 +20,7 @@ class Header extends Component {
     };
 
     render() {
+        console.log(this.props);
         return (
             <nav>
                 <div className="nav-wrapper">
