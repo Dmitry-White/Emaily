@@ -8,12 +8,13 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>;
+                return <li><a href="/auth/google">Login With Google</a></li>
             default:
                 return (
                     <React.Fragment>
                         <li><Link to="/surveys">Surveys</Link></li>
                         <li><Link to="/surveys/new">New Survey</Link></li>
+                        <li><a href="/api/logout">Logout</a></li>
                     </React.Fragment>
                 );
         }
