@@ -6,5 +6,5 @@ export default (state = null, action) => {
             return action.payload || null;
         default:
             return state;
-    };
+    }
 };
