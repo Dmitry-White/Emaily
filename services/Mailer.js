@@ -5,8 +5,12 @@ const keys = require('../config/keys');
 
 
 class Mailer extends helper.Mail {
-    constructor() {
-        console.log("!");
+    constructor({ subject, recipients }, content) {
+        super();
+        this.from_email = new helper.Email('no-reply@email.com');
+        this.subject = subject;
+        this.body = new helper.Content('text/html', content);
+        this.recipients = this.formatAddresses(recipients);
     };
 };
 
