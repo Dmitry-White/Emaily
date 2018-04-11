@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 
 const FIELDS = [
-    { label: 'Survey Title', name: 'title' },
-    { label: 'Subject Line', name: 'subject' },
-    { label: 'Email Body', name: 'body' },
-    { label: 'Recipient List', name: 'list of emails' }
+    { label: 'Survey Title', name: 'title', icon: "assessment" },
+    { label: 'Subject Line', name: 'subject', icon: "title" },
+    { label: 'Email Body', name: 'body', icon: "email" },
+    { label: 'Recipient List', name: 'list of emails',  icon: "list" }
 ];
 
 class SurveyForm extends Component {
@@ -16,8 +16,8 @@ class SurveyForm extends Component {
         /*return _.map(FIELDS, ({label, name}) => {
             return <Field key={name} component={SurveyField} type="text" label={label} name={name}/>
         });*/
-        return FIELDS.map(({label, name}) => {
-            return <Field key={name} component={SurveyField} type="text" label={label} name={name}/>
+        return FIELDS.map(({label, name, icon}) => {
+            return <Field key={name} component={SurveyField} type="text" label={label} name={name} icon={icon}/>
         });
     };
 

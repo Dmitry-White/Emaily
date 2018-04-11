@@ -24,7 +24,14 @@ class Header extends Component {
                     </div>
                 );
             case false:
-                return <li><a href="/auth/google">Login With Google</a></li>
+                return (
+                    <li>
+                        <a href="/auth/google">
+                            Login With Google
+                            <i className="material-icons left">account_box</i>
+                        </a>
+                    </li>
+                )
             default:
                 return (
                     <React.Fragment>
