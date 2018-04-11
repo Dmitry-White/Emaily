@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import SurveyForm from './SurveyForm';
-import * as actions from '../../actions';
+import SurveyFormReview from './SurveyFormReview';
 
 class SurveyNew extends Component {
+    state = {
+        showFormReview: false
+    };
+
+    onSurveySubmit = () => {
+        this.setState({
+            showFormReview: true
+        });
+    };
+
+    onCancelSubmit = () => {
+        this.setState({
+            showFormReview: false
+        });
+    };
+
     render() {
         return (
-            <React.Fragment>
-                <h3>New survey form</h3>
-                <SurveyForm />
-            </React.Fragment>
+            <section>
+                {this.state.showFormReview
+                    ? <SurveyFormReview onCancelSubmit={this.onCancelSubmit}/>
+                    : <SurveyForm onSurveySubmit={this.onSurveySubmit}/>
+                }
+            </section>
         );
     };
 };
 
-export default connect(null, actions)(SurveyNew);
+export default SurveyNew;

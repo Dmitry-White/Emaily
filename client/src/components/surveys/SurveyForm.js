@@ -4,13 +4,7 @@ import { Link } from 'react-router-dom';
 
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
-
-const FIELDS = [
-    { label: 'Survey Name', name: 'title', icon: "assessment" },
-    { label: 'Subject Line', name: 'subject', icon: "title" },
-    { label: 'Email Body', name: 'body', icon: "email" },
-    { label: 'Recipient List', name: 'list of emails',  icon: "list" }
-];
+import FIELDS from './formFields';
 
 class SurveyForm extends Component {
     renderFields() {
