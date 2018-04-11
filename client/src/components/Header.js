@@ -30,9 +30,24 @@ class Header extends Component {
                     <React.Fragment>
                         <li><Payments /></li>
                         <li style={{margin: "0 10px"}}>Credits: {this.props.auth.credits}</li>
-                        <li><Link to="/surveys">Surveys</Link></li>
-                        <li><Link to="/surveys/new">New Survey</Link></li>
-                        <li><a href="/api/logout">Logout</a></li>
+                        <li>
+                            <Link to="/surveys">
+                                Surveys
+                                <i className="material-icons left">home</i>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/surveys/new">
+                                New Survey
+                                <i className="material-icons left">add_box</i>
+                            </Link>
+                        </li>
+                        <li>
+                            <a href="/api/logout">
+                                Logout
+                                <i className="material-icons left">power_settings_new</i>
+                            </a>
+                        </li>
                     </React.Fragment>
                 );
         }
