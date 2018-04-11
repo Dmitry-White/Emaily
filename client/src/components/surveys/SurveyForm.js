@@ -2,10 +2,12 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
+
 import SurveyField from './SurveyField';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
-    { label: 'Survey Title', name: 'title', icon: "assessment" },
+    { label: 'Survey Name', name: 'title', icon: "assessment" },
     { label: 'Subject Line', name: 'subject', icon: "title" },
     { label: 'Email Body', name: 'body', icon: "email" },
     { label: 'Recipient List', name: 'list of emails',  icon: "list" }
@@ -40,6 +42,8 @@ class SurveyForm extends Component {
 
 const validate = values => {
     const errors = {};
+
+    errors["list of emails"] = validateEmails(values["list of emails"] || "");
 
     FIELDS.forEach(({ name }) => {
         if (!values[name]) {

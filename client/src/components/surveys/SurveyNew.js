@@ -8,7 +8,7 @@ class SurveyNew extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1>Add new survey here! </h1>
+                <h3>New survey form</h3>
                 <SurveyForm />
             </React.Fragment>
         );
