@@ -1,4 +1,3 @@
-//import _ from 'lodash';
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Link } from 'react-router-dom';
@@ -15,9 +14,6 @@ const FIELDS = [
 
 class SurveyForm extends Component {
     renderFields() {
-        /*return _.map(FIELDS, ({label, name}) => {
-            return <Field key={name} component={SurveyField} type="text" label={label} name={name}/>
-        });*/
         return FIELDS.map(({label, name, icon}) => {
             return <Field key={name} component={SurveyField} type="text" label={label} name={name} icon={icon}/>
         });
@@ -25,17 +21,20 @@ class SurveyForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(values => console.log(values))}>
-                {this.renderFields()}
-                <Link to="/surveys" style={{backgroundColor:"#ee6e73"}} className="btn left white-text">
-                    Cancel
-                    <i className="material-icons left">clear</i>
-                </Link>
-                <button className="btn right white-text" type="submit">
-                    Next
-                    <i className="material-icons right">done</i>
-                </button>
-            </form>
+            <React.Fragment>
+                <h3>Create new survey</h3>
+                <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
+                    {this.renderFields()}
+                    <Link to="/surveys" style={{backgroundColor:"#ee6e73"}} className="btn left white-text">
+                        Cancel
+                        <i className="material-icons left">clear</i>
+                    </Link>
+                    <button className="btn right white-text" type="submit">
+                        Next
+                        <i className="material-icons right">arrow_forward</i>
+                    </button>
+                </form>
+            </React.Fragment>
         );
     };
 };
@@ -56,5 +55,6 @@ const validate = values => {
 
 export default reduxForm({
     form: 'surveyForm',
-    validate
+    validate,
+    destroyOnUnmount: false
 })(SurveyForm);
