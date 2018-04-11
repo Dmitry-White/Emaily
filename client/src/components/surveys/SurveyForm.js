@@ -36,11 +36,15 @@ class SurveyForm extends Component {
 const validate = values => {
     const errors = {};
 
-    errors["list of emails"] = validateEmails(values["list of emails"] || "");
+    errors.recipients = validateEmails(values.recipients || "");
 
     FIELDS.forEach(({ name }) => {
-        if (!values[name]) {
-            errors[name] = `You must provide a ${name}`;
+        const oldName = name;
+        if (!values[oldName]) {
+            if (name === "recipients") {
+                name = "list of emails";
+            };
+            errors[oldName] = `You must provide a ${name}`;
         }
     });
 
